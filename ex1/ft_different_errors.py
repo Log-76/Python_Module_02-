@@ -6,3 +6,8 @@ def garden_operations(temp_str):
         print("Caught ValueError: invalid literal for int()")
     except ZeroDivisionError:
         print("Caught ZeroDivisionError: division by zero")
+    except FileNotFoundError:
+        print("Caught FileNotFoundError: No such file 'missing.txt'")
+    except KeyError:
+        print("Caught KeyError: 'missing\_plant'")
+    
