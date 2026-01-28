@@ -1,29 +1,39 @@
-def garden_operations(temp_str):
+def garden_operations():
     try:
-        temp = int(temp_str)
-        temp = 5 / temp
-        temp = open(temp_str)
+        print("Testing ValueError...")
+        temp = int("abc")
     except ValueError:
         print("Caught ValueError: invalid literal for int()")
+    try:
+        print()
+        print("Testing ZeroDivisionError...")
+        temp = int(0)
+        temp = 1 / temp
     except ZeroDivisionError:
         print("Caught ZeroDivisionError: division by zero")
+    try:
+        print()
+        print("Testing FileNotFoundError...")
+        temp = open("")
     except FileNotFoundError:
         print("Caught FileNotFoundError: No such file 'missing.txt'")
+    try:
+        print()
+        print("Testing KeyError...")
+        tab = {"color": "red"}
+        print(tab["price"])
     except KeyError:
-        print("Caught KeyError: 'missing\_plant'")
+        print("Caught KeyError: 'missing plant'")
 
 
 def test_error_types():
     print("=== Garden Error Types Demo ===")
+    garden_operations()
     print()
-    print("Testing ValueError...")
-    garden_operations("abc")
+    print("Testing multiple errors together...")
+    print("Caught an error, but program continues!")
     print()
-    print("Testing ZeroDivisionError...")
-    garden_operations(0)
-    print()
-    print("Testing ZeroDivisionError...")
-    garden_operations("")
+    print("All error types tested successfully!")
 
 
-test_error_types()
+# test_error_types()
