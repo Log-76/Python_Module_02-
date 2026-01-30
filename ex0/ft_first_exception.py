@@ -1,4 +1,4 @@
-def check_temperature(temp_str) -> int:
+def check_temperature(temp_str: int) -> int:
     print(f"Testing temperature: {temp_str}")
     try:
         temp = int(temp_str)
