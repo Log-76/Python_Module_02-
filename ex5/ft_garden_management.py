@@ -1,10 +1,10 @@
 class GardenManager:
-    def __init__(self, name, water_tank):
+    def __init__(self, name: str, water_tank: int):
         self.name = name
         self.water_tank = int(water_tank)
         self.garden = []
 
-    def add(self, plante):
+    def add(self, plante: list):
         try:
             plant_verif(plante.name)
             self.garden.append(plante)
@@ -41,7 +41,7 @@ class GardenManager:
 
 
 class SunlightError(Exception):
-    def __init__(self, sunlight):
+    def __init__(self, sunlight: int):
         self.sunlight = int(sunlight)
         if self.sunlight > 10:
             super().__init__(f"Error: Sunlight hours {sunlight}"
@@ -52,7 +52,7 @@ class SunlightError(Exception):
 
 
 class WaterError(Exception):
-    def __init__(self, water):
+    def __init__(self, water: int):
         self.water = int(water)
         if self.water > 10:
             super().__init__(f"Error: Water level {water}"
@@ -62,7 +62,7 @@ class WaterError(Exception):
                              f" is too low (min 1)")
 
 
-def check_plant_health(water_level, sunlight_hours):
+def check_plant_health(water_level: int, sunlight_hours: int):
     if water_level < 1 or water_level > 10:
         raise WaterError(water_level)
     if sunlight_hours < 2 or sunlight_hours > 12:
@@ -70,7 +70,7 @@ def check_plant_health(water_level, sunlight_hours):
 
 
 class PlantError(Exception):
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
 
 
@@ -80,18 +80,18 @@ def plant_verif(plant):
 
 
 class GardenError(Exception):
-    def __init__(self, water_tank):
+    def __init__(self, water_tank: int):
         self.water_tank = water_tank
         super().__init__("Caught GardenError: Not enough water in tank")
 
 
-def verif_erreur(water_tank):
+def verif_erreur(water_tank: int):
     if water_tank == 0:
         raise GardenError(water_tank)
 
 
 class Plant:
-    def __init__(self, name, sunligth, water):
+    def __init__(self, name: str, sunligth: int, water: int):
         self.name = name
         self.sunligth = sunligth
         self.water = water

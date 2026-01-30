@@ -1,11 +1,11 @@
 class NameError(Exception):
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
         super().__init__("Error:nom manquant")
 
 
 class WaterError(Exception):
-    def __init__(self, water):
+    def __init__(self, water: int):
         self.water = int(water)
         if self.water > 10:
             super().__init__(f"Error: Water level {water}"
@@ -16,7 +16,7 @@ class WaterError(Exception):
 
 
 class SunlightError(Exception):
-    def __init__(self, sunlight):
+    def __init__(self, sunlight: int):
         self.sunlight = int(sunlight)
         if self.sunlight > 10:
             super().__init__(f"Error: Sunlight hours {sunlight}"
@@ -26,7 +26,7 @@ class SunlightError(Exception):
                              f"is too low (min 2)")
 
 
-def check_plant_health(plant_name, water_level, sunlight_hours):
+def check_plant_health(plant_name: str, water_level: int, sunlight_hours: int):
     if not plant_name:
         raise NameError(plant_name)
     if water_level < 1 or water_level > 10:

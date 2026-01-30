@@ -1,14 +1,14 @@
 class PlantError(Exception):
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
 
 
-def plant_verif(plant):
+def plant_verif(plant: str):
     if not isinstance(plant, str):
         raise PlantError(plant)
 
 
-def water_plants(plant_list):
+def water_plants(plant_list: list):
     print("Opening watering system")
     try:
         for plant in plant_list:

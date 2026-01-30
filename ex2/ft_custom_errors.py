@@ -10,13 +10,13 @@ les info obligatoire et print l erreur avec un message
 
 
 class PlantError(GardenError):
-    def __init__(self, name, water):
+    def __init__(self, name: str, water: int):
         self.water = int(water)
         print(f"Caught PlantError: The {name} plant is wilting!")
 
 
 class WaterError(PlantError):
-    def __init__(self, water_tank):
+    def __init__(self, water_tank: int):
         self.water_tank = int(water_tank)
         print("Caught WaterError: Not enough water in the tank!")
 
@@ -30,12 +30,12 @@ du programme sans continiuer le try
 """
 
 
-def verif_erreur(water_tank):
+def verif_erreur(water_tank: int):
     if water_tank == 0:
         raise WaterError(water_tank)
 
 
-def verif_plant(name, water):
+def verif_plant(name: str, water: int):
     if water > 2:
         raise PlantError(name, water)
 
